@@ -19,8 +19,8 @@ export const MoviesPage: FC = () => {
 
     return (
         <div className="container mx-auto px-4 py-6">
-            {loading && <div className="text-center text-gray-500 my-10">Загрузка...</div>}
-            {error && <div className="text-center text-red-600 my-6">Ошибка: {error}</div>}
+            {loading && <div className="text-center text-gray-500 my-10">Loading...</div>}
+            {error && <div className="text-center text-red-600 my-6">Smth wrong: {error}</div>}
 
             {!loading && !error && <MoviesList movies={items} />}
 

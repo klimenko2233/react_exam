@@ -9,16 +9,15 @@ interface PaginationProps {
 const MAX_VISIBLE_PAGES = 5;
 
 export const Pagination: FC<PaginationProps> = ({ page, totalPages, onChange }) => {
-    if (totalPages <= 1) return null; // если всего 1 страница, пагинация не нужна
 
     const handlePrev = () => onChange(Math.max(1, page - 1));
     const handleNext = () => onChange(Math.min(totalPages, page + 1));
 
     const getPageNumbers = () => {
         let start = Math.max(1, page - Math.floor(MAX_VISIBLE_PAGES / 2));
-        let end = Math.min(totalPages, start + MAX_VISIBLE_PAGES - 1);
+        const end = Math.min(totalPages, start + MAX_VISIBLE_PAGES - 1);
 
-        // корректируем start, если конец выходит за пределы
+
         start = Math.max(1, end - MAX_VISIBLE_PAGES + 1);
 
         const pages = [];

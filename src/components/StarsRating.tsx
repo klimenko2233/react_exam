@@ -1,23 +1,22 @@
 import type {FC} from "react";
-import StarRatings from "react-star-ratings";
-
 
 interface StarsRatingProps {
     rating: number;
 }
 
-export const StarsRating:FC<StarsRatingProps> = ({ rating }) => {
+export const StarsRating: FC<StarsRatingProps> = ({ rating }) => {
+    const fullStars = Math.round(rating / 2);
+
     return (
-        <div className="flex items-center gap-2">
-            <StarRatings
-                rating={rating / 2}
-                starRatedColor="gold"
-                starEmptyColor="#d1d5db"
-                numberOfStars={5}
-                starDimension="20px"
-                starSpacing="2px"
-                name="rating"
-            />
+        <div className="flex items-center gap-1">
+            {Array.from({ length: 5 }).map((_, i) => (
+                <span
+                    key={i}
+                    className={i < fullStars ? "text-yellow-500" : "text-gray-300"}
+                >
+                    ★
+                </span>
+            ))}
             <span className="text-gray-600 text-sm">({rating.toFixed(1)})</span>
         </div>
     );

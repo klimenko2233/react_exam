@@ -1,16 +1,15 @@
+import { Link } from "react-router-dom";
+import { PosterPreview } from "./PosterPreview";
+import { StarsRating } from "./StarsRating";
+import { GenreBadge } from "./GenreBadge";
 import type {IMovie} from "../models/IMovie.ts";
-import {Link} from "react-router-dom";
 import type {FC} from "react";
-import {PosterPreview} from "./PosterPreview.tsx";
-import {GenreBadge} from "./GenreBadge.tsx";
-import {StarsRating} from "./StarsRating.tsx";
-
 
 interface MoviesListCardProps {
     movie: IMovie;
 }
 
-export const MoviesListCard:FC<MoviesListCardProps> = ({ movie }) => {
+export const MoviesListCard: FC<MoviesListCardProps> = ({ movie }) => {
     return (
         <div className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
             <Link to={`/movie/${movie.id}`}>
@@ -28,3 +27,4 @@ export const MoviesListCard:FC<MoviesListCardProps> = ({ movie }) => {
         </div>
     );
 };
+

@@ -9,7 +9,7 @@ export const MovieDetailsPage: FC = () => {
     const { id } = useParams();
     const movieId = Number(id);
     const dispatch = useAppDispatch();
-    const { current, loading, error, language } = useAppSelector(s => s.movies);
+    const { current, loading, error, language } = useAppSelector(store => store.movies);
 
     useEffect(() => {
         if (movieId) {
@@ -18,8 +18,8 @@ export const MovieDetailsPage: FC = () => {
         return () => { dispatch(movieActions.clearCurrent()); };
     }, [dispatch, movieId, language]);
 
-    if (loading || !current) return <div className="text-center my-10">{loading ? "Загрузка..." : "Нет данных"}</div>;
-    if (error) return <div className="text-center text-red-600 my-6">Ошибка: {error}</div>;
+    if (loading || !current) return <div className="text-center my-10">{loading ? "Loading..." : "No Data"}</div>;
+    if (error) return <div className="text-center text-red-600 my-6">Smth wrong: {error}</div>;
 
     return (
         <div className="grid md:grid-cols-3 gap-6">
@@ -30,7 +30,7 @@ export const MovieDetailsPage: FC = () => {
                     className="rounded-xl shadow"
                 />
                 <Link to="/" className="inline-block mt-4 text-indigo-600 hover:underline">
-                    ← Назад к списку
+                    ← Back to Movies
                 </Link>
             </div>
 
