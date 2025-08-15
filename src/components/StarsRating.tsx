@@ -1,4 +1,6 @@
 import type {FC} from "react";
+import StarRatings from "react-star-ratings";
+
 
 interface StarsRatingProps {
     rating: number;

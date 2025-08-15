@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import type {FC} from "react";
 import {PosterPreview} from "./PosterPreview.tsx";
 import {GenreBadge} from "./GenreBadge.tsx";
+import {StarsRating} from "./StarsRating.tsx";
 
 
 interface MoviesListCardProps {
