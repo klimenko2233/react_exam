@@ -40,5 +40,6 @@ export const movieService = {
     async getMovieById(id: number, language = "en-US"): Promise<IMovie> {
         const res = await axiosInstance.get<IMovie>(`/movie/${id}`, { params: { language } });
         return res.data;
+
     },
 };
