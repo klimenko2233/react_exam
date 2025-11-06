@@ -3,7 +3,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN --mount=type=secret,id=tmdb_token\
+    export VITE_TMDB_TOKEN=$(cat /run/secrets/tmdb_token) && \
+    npm run build
 
 FROM node:18-alpine
 RUN npm install -g serve
